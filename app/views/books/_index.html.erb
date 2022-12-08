@@ -16,6 +16,10 @@
         </td>
         <td><%= link_to book.title,book %></td>
         <td><%= book.body %></td>
+
+　　　　<!-投稿一覧画面で投稿に紐づくタグを表示->
+        <td><%= book.tags.map(&:name).join(', ') %></td>
+
           <td><div id="favorite_btn_<%= book.id %>">
             <%= render 'favorites/favorite', book: book %>
           </div></td>
