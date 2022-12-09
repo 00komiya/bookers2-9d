@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   # 検索ボタンが押された時にsearchesコントローラーのsearchアクションが実行される
   get 'search' => 'searches#search'
 
-  get "search_book" => "books#search_book"
-
   resources :users do
    resource :relationships, only: [:create, :destroy]
     get :follows, on: :member

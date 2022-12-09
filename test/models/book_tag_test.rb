@@ -1,6 +1,6 @@
 require "test_helper"
 
-class BookTagRelationTest < ActiveSupport::TestCase
+class BookTagTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
