@@ -30,17 +30,4 @@ class Book < ApplicationRecord
     end
   end
 
-  def tags_save(tag_list)
-    if self.tags != nil
-      book_tag_relations_records = BookTag.where(book_id: self.id)
-      book_tag_relations.destroy_all
-    end
-
-    tag_list.each do |tag|
-      inspected_tag = Tag.where(tagname: tag).first_or_create
-      self.tags << inspected_tag
-    end
-
-  end
-
 end

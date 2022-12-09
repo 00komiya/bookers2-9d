@@ -20,18 +20,11 @@ class BooksController < ApplicationController
     @book = Book.new
     @user = current_user
 
-    @tag_list=Tag.all
-
   end
 
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
-
-    # 受け取った値を,で区切って配列にする
-    tag_list = params[:book][:tagnames].split(",")
-    @book.tags_save(tag_list)
-
     if @book.save
       redirect_to book_path(@book), notice: "You have created book successfully."
     else
@@ -64,10 +57,15 @@ class BooksController < ApplicationController
   	redirect_to books_path
   end
 
+  def search_book
+    @book=Book.new
+    @books = Book.search(params[:keyword])
+  end
+
   private
 
   def book_params
-    params.require(:book).permit(:title, :body, :tag)
+    params.require(:book).permit(:title, :body, :tagname)
   end
 
   def ensure_correct_user
