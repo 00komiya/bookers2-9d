@@ -30,4 +30,8 @@ class Book < ApplicationRecord
     end
   end
 
+  def self.search(search_word)
+    Book.where(['tagname LIKE ?', "#{search_word}"])
+  end
+
 end
