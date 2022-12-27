@@ -62,3 +62,5 @@ gem 'cancancan'
 gem 'rails_admin'
 
 gem 'rails-i18n'
+
+gem 'rating'

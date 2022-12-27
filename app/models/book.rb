@@ -16,7 +16,7 @@ class Book < ApplicationRecord
   end
 
   # 検索方法分岐
-  def self.looks(search, word)
+  def self.search_for(content, method)
     if search == "perfect_match" # 完全一致
       @book = Book.where("title LIKE?","#{word}")
     elsif search == "forward_match" # 前方一致のため後ろに%
